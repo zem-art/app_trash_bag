@@ -26,6 +26,7 @@ import Forgot from '../screen/auth/forgot';
 import SuccsesF from '../components/sucsessForgot';
 import Total from '../components/Total';
 import HistoryS from '../components/HistoryS';
+import HistoryCheck from '../components/HistoryCheck';
 
 const Stack = createStackNavigator();
 
@@ -188,6 +189,11 @@ class Navigation extends Component {
           <Stack.Screen
             name="History"
             component={HistoryS}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="HistoryC"
+            component={HistoryCheck}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

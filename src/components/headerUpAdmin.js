@@ -18,7 +18,7 @@ export class HeaderUp extends Component {
           <Text>Trash Bag</Text>
         </View>
         <TouchableOpacity
-          onPress={() => this.Attention()}
+          onPress={() => this.props.navigation.navigate('HistoryC')}
           style={styles.endIcon}>
           <Image
             style={styles.icon1}
