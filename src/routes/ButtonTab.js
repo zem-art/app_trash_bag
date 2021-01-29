@@ -11,6 +11,7 @@ import Driver from '../container/HomeAdmin_1';
 import ChatAdmin1 from '../container/ChatAdmin';
 
 import Admin from '../container/HomeAdmin2';
+import ProfileA from '../container/ProfileAdmin';
 
 const Tab = createBottomTabNavigator();
 
@@ -94,7 +95,7 @@ class ButtomTab extends Component {
               />
               <Tab.Screen
                 name="Profile"
-                component={Profile}
+                component={ProfileA}
                 options={{
                   tabBarIcon: () => (
                     <Image
@@ -121,7 +122,7 @@ class ButtomTab extends Component {
               />
               <Tab.Screen
                 name="Profile"
-                component={Profile}
+                component={ProfileA}
                 options={{
                   tabBarIcon: () => (
                     <Image

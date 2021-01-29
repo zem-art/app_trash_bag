@@ -111,6 +111,24 @@ const styles = StyleSheet.create({
   loading: {
     alignSelf: 'center',
   },
+  headerA: {
+    height: 140,
+    paddingTop: 30,
+  },
+  pasctBackA: {
+    marginLeft: 15,
+    height: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 70,
+    flexDirection: 'row',
+    // borderWidth: 1,
+  },
+  backA: {
+    height: 30,
+    width: 30,
+    marginRight: 10,
+  },
 });
 
 export {styles};
