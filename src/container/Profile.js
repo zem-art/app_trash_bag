@@ -6,16 +6,71 @@ import {
   TouchableOpacity,
   ScrollView,
   StatusBar,
-  // ToastAndroid,
+  ToastAndroid,
 } from 'react-native';
 import {styles} from '../styles/styleProfile';
 import LinearGradient from 'react-native-linear-gradient';
 import {connect} from 'react-redux';
 import HeaderP from '../components/headerProfile';
 import BodyProfile from '../components/bodyProfile';
+import axios from 'axios';
+import Spinner from 'react-native-spinkit';
 
 class Profile extends Component {
+  constructor() {
+    super();
+    this.state = {
+      Trash: '',
+    };
+  }
+
+  componentDidMount() {
+    this.getTrash();
+  }
+
+  getTrash = async () => {
+    this.setState({isloading: true});
+    try {
+      await axios({
+        url: 'https://trashbag.herokuapp.com/api/Total',
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${this.props.userData.userReducer.user}`,
+        },
+      })
+        .then((result) => {
+          console.log('Berhasil GET==', result.data);
+          this.setState({
+            isloading: false,
+            Trash: result.data.data,
+            refreash: false,
+          });
+        })
+        .catch((err) => {
+          console.log('Gagal===', err);
+          this.setState({isloading: false, refreash: false});
+        });
+    } catch (err) {
+      console.log('Gagal===', err);
+    }
+  };
+
   render() {
+    if (this.state.isloading) {
+      return (
+        <View style={styles.Loading1}>
+          <Spinner color={'blue'} size={40} type="ThreeBounce" />
+          <Text>Sedang Memuat data</Text>
+        </View>
+      );
+    } else if (this.state.isEror) {
+      return (
+        <View style={styles.Loading1}>
+          <Text>Maaf Terjadi Eror Saat Memuat Data</Text>
+          <Text>Dan Kesalahan Dari Kami Bukan Dari Anda</Text>
+        </View>
+      );
+    }
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#5ad488ff" />
@@ -34,17 +89,13 @@ class Profile extends Component {
           <View style={styles.pactData}>
             <View style={styles.data}>
               <View style={styles.inData}>
-                <Text>Total Point</Text>
-                <Text>Angka</Text>
-              </View>
-              <View style={styles.inData}>
                 <Text>Total Sampah</Text>
-                <Text>Angka</Text>
+                <Text>{this.state.Trash} KG</Text>
               </View>
-              <View style={styles.inData}>
+              <TouchableOpacity style={styles.inData}>
                 <Text>Total Berat</Text>
-                <Text>Angka</Text>
-              </View>
+                <Text>Klik</Text>
+              </TouchableOpacity>
             </View>
           </View>
         </LinearGradient>
