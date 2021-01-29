@@ -21,12 +21,45 @@ class Profile extends Component {
     super();
     this.state = {
       Trash: '',
+      saldo: '',
+      isloading: false,
     };
   }
 
   componentDidMount() {
     this.getTrash();
+    this.getSaldo();
   }
+
+  getSaldo = async () => {
+    this.setState({isloading: true});
+    try {
+      await axios({
+        url: 'https://trashbag.herokuapp.com/api/saldo',
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${this.props.userData.userReducer.user}`,
+        },
+      })
+        .then((result) => {
+          console.log('Sucsess==', result.data.data);
+          this.setState({
+            saldo: result.data.data,
+            isloading: false,
+          });
+        })
+        .catch((error) => {
+          ToastAndroid.show('Eroro Get Data', ToastAndroid.LONG);
+          console.error(error);
+          this.setState({
+            isloading: false,
+          });
+        });
+    } catch (eror) {
+      console.log('Eror Get Data');
+      ToastAndroid('Maaf Terjadi Eror ', ToastAndroid.LONG);
+    }
+  };
 
   getTrash = async () => {
     this.setState({isloading: true});
@@ -49,9 +82,12 @@ class Profile extends Component {
         .catch((err) => {
           console.log('Gagal===', err);
           this.setState({isloading: false, refreash: false});
+          ToastAndroid.show('Eror Get Data', ToastAndroid.LONG);
         });
     } catch (err) {
       console.log('Gagal===', err);
+      this.setState({isloading: false, refreash: false});
+      ToastAndroid.show('Eror Get Data', ToastAndroid.LONG);
     }
   };
 
@@ -89,6 +125,10 @@ class Profile extends Component {
           <View style={styles.pactData}>
             <View style={styles.data}>
               <View style={styles.inData}>
+                <Text>Total Saldo</Text>
+                <Text>{this.state.saldo}</Text>
+              </View>
+              <View style={styles.inData}>
                 <Text>Total Sampah</Text>
                 <Text>{this.state.Trash} KG</Text>
               </View>
@@ -114,14 +154,3 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps)(Profile);
-
-// const mapDispatchToProps = (dispatch) => {
-//   // send response to its redux to delete token
-//   return {
-//     userLogin: (token) => dispatch({type: 'SET_USER', payload: token}),
-//     userRole: (role) => dispatch({type: 'USER_ROLE', payload: role}),
-//     nameUser: (name) => dispatch({type: 'NAME_USER', payload: name}),
-//     emailUser: (email) => dispatch({type: 'EMAIL_USER', payload: email}),
-//     userImage: (image) => dispatch({type: 'IMAGE_USER', payload: image}),
-//   };
-// };

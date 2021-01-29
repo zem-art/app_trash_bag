@@ -9,29 +9,30 @@ export class DataAccount extends Component {
   constructor() {
     super();
     this.state = {
-      data: {},
+      saldo: [],
       isloading: false,
     };
     // console.log('ini data State==', this.state.data);
   }
 
   componentDidMount() {
-    this.getData();
+    this.getSaldo();
   }
 
-  getData = async () => {
+  getSaldo = async () => {
     this.setState({isloading: true});
     try {
-      axios
-        .get('https://trashbag.herokuapp.com/api/saldo', {
-          headers: {
-            Authorization: `Bearer ${this.props.userData.userReducer.user}`,
-          },
-        })
+      await axios({
+        url: 'https://trashbag.herokuapp.com/api/historySaldo',
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${this.props.userData.userReducer.user}`,
+        },
+      })
         .then((result) => {
-          // console.log('Sucsess==', result.data);
+          console.log('Sucsess==', result.data.data);
           this.setState({
-            data: result.data,
+            saldo: result.data.data,
             isloading: false,
           });
         })
@@ -47,6 +48,7 @@ export class DataAccount extends Component {
       ToastAndroid('Maaf Terjadi Eror ', ToastAndroid.LONG);
     }
   };
+
   render() {
     if (this.state.isloading) {
       return (
@@ -59,18 +61,17 @@ export class DataAccount extends Component {
     // console.log('Ini Data State===', this.state.data);
     return (
       <>
-        <View style={styles.data}>
-          <Text style={styles.textData}>Saldo</Text>
-          <Text>{this.state.data.data}</Text>
-        </View>
-        <View style={styles.data}>
-          <Text style={styles.textData}>Saldo</Text>
-          <Text>{this.state.data.data}</Text>
-        </View>
-        <View style={styles.data}>
-          <Text style={styles.textData}>Saldo</Text>
-          <Text>{this.state.data.data}</Text>
-        </View>
+        {this.state.saldo.map((item, value) => {
+          return (
+            <View style={styles.data}>
+              <Text style={styles.textData}>Saldo</Text>
+              {/* <View style={{flexDirection: 'row'}}> */}
+              <Text>{item.saldo}</Text>
+              <Text>{item.created_at}</Text>
+              {/* </View> */}
+            </View>
+          );
+        })}
       </>
     );
   }
