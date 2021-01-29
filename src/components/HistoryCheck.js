@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   ToastAndroid,
+  RefreshControl,
 } from 'react-native';
 import {connect} from 'react-redux';
 import {styles} from '../styles/styleHistoryC';
@@ -106,7 +107,13 @@ export class HistoryCheck extends Component {
           </TouchableOpacity>
           <Text style={styles.Title}>History Check Sampah</Text>
         </View>
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreash}
+              onRefresh={() => this.onRefreash()}
+            />
+          }>
           <View style={styles.body}>
             {this.state.history.map((item, value) => {
               return (
