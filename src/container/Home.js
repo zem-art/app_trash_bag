@@ -155,7 +155,7 @@ export class Home extends Component {
               </LinearGradient>
             </View>
             <TouchableOpacity
-              onPress={() => this.Atention()}
+              onPress={() => this.props.navigation.navigate('History')}
               style={styles.see}>
               <Text style={styles.text5}>Lihat Semua</Text>
             </TouchableOpacity>
