@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
   },
   header: {
-    height: '25%',
+    height: 60,
     // borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
   },
   inData: {
     borderWidth: 1,
-    height: 50,
+    borderColor: '#5ad488ff',
+    height: 80,
     marginTop: 10,
     borderRadius: 10,
     flexDirection: 'row',
@@ -38,6 +39,18 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  no: {
+    alignItems: 'center',
+  },
+  textData: {
+    fontSize: 15,
+    fontWeight: 'bold',
+  },
+  Title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: '#ffff',
   },
 });
 

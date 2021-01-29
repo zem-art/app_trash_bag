@@ -103,15 +103,29 @@ export class HistoryS extends Component {
               source={require('../assets/icon/Back.png')}
             />
           </TouchableOpacity>
-          <Text>Back</Text>
+          <Text style={styles.Title}>History</Text>
         </View>
         <ScrollView>
           <View style={styles.data}>
             {this.state.Data.map((item, value) => {
               return (
                 <View style={styles.inData}>
-                  <Text>Berat : {item.berat}</Text>
-                  <Text>Data</Text>
+                  <View style={styles.no}>
+                    <Text style={styles.textData}>No Barang</Text>
+                    <Text>{item.id}</Text>
+                  </View>
+                  <View style={styles.no}>
+                    <Text style={styles.textData}>Berat Barang : </Text>
+                    <Text>{item.berat}</Text>
+                    <Text style={styles.textData}>Saldo : {item.saldo}</Text>
+                  </View>
+                  <View style={styles.no}>
+                    <Text style={styles.textData}>Jenis : </Text>
+                    <Text>{item.jenis.jenis_sampah}</Text>
+                    <Text style={styles.textData}>
+                      Harga : {item.jenis.harga}
+                    </Text>
+                  </View>
                 </View>
               );
             })}

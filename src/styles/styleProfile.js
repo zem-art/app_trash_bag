@@ -130,6 +130,11 @@ const styles = StyleSheet.create({
     width: 30,
     marginRight: 10,
   },
+  Loading1: {
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
+  },
 });
 
 export {styles};
