@@ -64,11 +64,16 @@ export class DataAccount extends Component {
         {this.state.saldo.map((item, value) => {
           return (
             <View style={styles.data}>
-              <Text style={styles.textData}>Saldo</Text>
-              {/* <View style={{flexDirection: 'row'}}> */}
-              <Text>{item.saldo}</Text>
-              <Text>{item.created_at}</Text>
-              {/* </View> */}
+              <View
+                style={{
+                  flexDirection: 'row',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text style={styles.textData}>Saldo :</Text>
+                <Text>{item.saldo}</Text>
+              </View>
+              <Text style={styles.date}>{item.created_at}</Text>
             </View>
           );
         })}

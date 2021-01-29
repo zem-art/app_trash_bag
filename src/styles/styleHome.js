@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   data: {
     backgroundColor: '#ffff',
     elevation: 5,
-    width: 150,
+    width: 170,
     height: '80%',
     marginLeft: 10,
     borderRadius: 10,
@@ -125,8 +125,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     alignItems: 'center',
     paddingVertical: 5,
-    flexDirection: 'row',
-    // borderWidth: 1,
+    justifyContent: 'center',
+  },
+  date: {
+    marginTop: 10,
+    fontSize: 10,
+    color: '#a9a9',
   },
   textData: {
     marginRight: 10,
