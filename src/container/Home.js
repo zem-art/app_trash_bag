@@ -43,7 +43,7 @@ export class Home extends Component {
   }
 
   getData = async () => {
-    this.setState({isloading: true});
+    this.setState({isloading: true, isEror: true});
     await axios
       .get('https://trashbag.herokuapp.com/api/history', {
         headers: {
@@ -56,6 +56,7 @@ export class Home extends Component {
           data: result.data.data,
           isloading: false,
           refreash: false,
+          isEror: false,
         });
       })
       .catch((error) => {
@@ -64,6 +65,7 @@ export class Home extends Component {
         this.setState({
           isloading: false,
           refreash: false,
+          isEror: false,
         });
       });
   };
@@ -87,7 +89,7 @@ export class Home extends Component {
           <Text>Dan Kesalahan Dari Kami Bukan Dari Anda</Text>
           <TouchableOpacity
             style={styles.toc}
-            onPress={() => this.state.onRefreash()}>
+            onPress={() => this.onRefreash()}>
             <Text>Klik Me Untuk refreash</Text>
           </TouchableOpacity>
         </View>
