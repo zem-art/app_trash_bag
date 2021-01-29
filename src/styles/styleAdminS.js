@@ -3,13 +3,13 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c5f9edff',
+    backgroundColor: '#ffffff',
     // color: '#7cfc00',
     // backgroundColor: '#5ad488ff',
   },
   header: {
     height: '20%',
-    backgroundColor: '#c5f9edff',
+    // backgroundColor: '#c5f9edff',
     alignItems: 'center',
     justifyContent: 'center',
     // borderWidth: 1,
@@ -34,7 +34,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   clik: {
-    height: '70%',
+    height: '50%',
     width: '100%',
     borderRadius: 10,
     alignItems: 'center',
@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
   },
   image: {
     height: '100%',
-    width: '60%',
+    width: '70%',
     borderRadius: 10,
   },
   textTItle: {
