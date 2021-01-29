@@ -7,6 +7,7 @@ import {
   StatusBar,
 } from 'react-native';
 import {styles} from '../styles/styleTotal';
+import LottieView from 'lottie-react-native';
 
 export class Total extends Component {
   constructor(props) {
@@ -43,6 +44,14 @@ export class Total extends Component {
         <View style={styles.header}>
           <Text style={styles.Title}>Penghitungan Berhasil</Text>
         </View>
+        <View style={styles.pactIcon}>
+          <LottieView
+            source={require('../assets/animation/Done.json')}
+            style={styles.icon}
+            autoPlay
+            loop
+          />
+        </View>
         <View style={styles.body}>
           <View style={styles.data}>
             <Text>No Barang</Text>
@@ -64,7 +73,6 @@ export class Total extends Component {
             <Text>Name User</Text>
             <Text>{this.state.name}</Text>
           </View>
-
           <View style={styles.data}>
             <Text>Type</Text>
             <Text>{this.state.type}</Text>

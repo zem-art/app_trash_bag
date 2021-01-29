@@ -19,6 +19,15 @@ const styles = StyleSheet.create({
   bosy: {
     borderWidth: 1,
   },
+  pactIcon: {
+    height: 110,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  icon: {
+    height: 100,
+    width: 100,
+  },
   data: {
     // borderWidth: 1,
     borderBottomWidth: 1,
