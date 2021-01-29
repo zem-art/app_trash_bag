@@ -52,6 +52,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#ffff',
   },
+  bottom: {
+    height: 20,
+  },
 });
 
 export {styles};

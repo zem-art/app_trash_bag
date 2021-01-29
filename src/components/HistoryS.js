@@ -137,6 +137,7 @@ export class HistoryS extends Component {
               );
             })}
           </View>
+          <View style={styles.bottom} />
         </ScrollView>
       </View>
     );
