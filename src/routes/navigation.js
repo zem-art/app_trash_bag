@@ -25,6 +25,7 @@ import ChatPersonal from '../components/ChatPersonal';
 import Forgot from '../screen/auth/forgot';
 import SuccsesF from '../components/sucsessForgot';
 import Total from '../components/Total';
+import HistoryS from '../components/HistoryS';
 
 const Stack = createStackNavigator();
 
@@ -182,6 +183,11 @@ class Navigation extends Component {
           <Stack.Screen
             name="Total"
             component={Total}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="History"
+            component={HistoryS}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

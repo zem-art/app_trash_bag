@@ -31,6 +31,10 @@ class Profile extends Component {
     this.getSaldo();
   }
 
+  Refreash() {
+    this.getTrash(), this.getSaldo();
+  }
+
   getSaldo = async () => {
     this.setState({isloading: true});
     try {
@@ -132,7 +136,9 @@ class Profile extends Component {
                 <Text>Total Sampah</Text>
                 <Text>{this.state.Trash} KG</Text>
               </View>
-              <TouchableOpacity style={styles.inData}>
+              <TouchableOpacity
+                onPress={() => this.Refreash()}
+                style={styles.inData}>
                 <Text>Total Berat</Text>
                 <Text>Klik</Text>
               </TouchableOpacity>
