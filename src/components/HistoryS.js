@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   StatusBar,
   ToastAndroid,
+  RefreshControl,
 } from 'react-native';
 import {styles} from '../styles/styleHistoryS';
 import Spinner from 'react-native-spinkit';
@@ -105,7 +106,13 @@ export class HistoryS extends Component {
           </TouchableOpacity>
           <Text style={styles.Title}>History</Text>
         </View>
-        <ScrollView>
+        <ScrollView
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreash}
+              onRefresh={() => this.onRefreash()}
+            />
+          }>
           <View style={styles.data}>
             {this.state.Data.map((item, value) => {
               return (
