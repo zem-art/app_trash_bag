@@ -43,6 +43,7 @@ class ChatPersonal extends Component {
       cluster: 'mt1',
     });
     var channel = pusher.subscribe('my-channel');
+    // Delete Function menjadi Arrow Function
     channel.bind('my-event', (data) => {
       // alert(JSON.stringify(data));
       this.getChat(data);

@@ -24,7 +24,6 @@ export class Chat extends Component {
       data: [],
       isloading: false,
     };
-    // console.log('GET DATA==', this.state.id);
   }
 
   componentDidMount() {
