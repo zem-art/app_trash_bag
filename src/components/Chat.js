@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput,
   RefreshControl,
+  ToastAndroid,
 } from 'react-native';
 import {styles} from '../styles/styleInChat';
 import axios from 'axios';
@@ -60,7 +61,8 @@ export class Chat extends Component {
       },
     })
       .then((result) => {
-        // console.log('Berhasil SEND ==', result.data.data);
+        console.log('Berhasil SEND ==', result.data.data);
+        ToastAndroid.show('Sucsess', ToastAndroid.LONG);
         this.setState({
           isloading: false,
           send: '',
@@ -68,6 +70,7 @@ export class Chat extends Component {
       })
       .catch((err) => {
         console.log('Gagal SEND===', err);
+        ToastAndroid.show('Eror Send SMS', ToastAndroid.LONG);
         this.setState({isloading: false});
       });
     console.log('INI Selesai');
@@ -92,6 +95,7 @@ export class Chat extends Component {
       });
     } catch (err) {
       console.log('Gagal===', err);
+      ToastAndroid.show('Eror Send SMS', ToastAndroid.LONG);
       this.setState({isloading: false, refreash: false});
     }
   };

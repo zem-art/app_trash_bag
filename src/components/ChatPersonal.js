@@ -39,7 +39,7 @@ class ChatPersonal extends Component {
     this.getChat();
     Pusher.logToConsole = true;
 
-    var pusher = new Pusher('1adf33301a9914ac85c1', {
+    var pusher = new Pusher('0cc37a33022ed847be85', {
       cluster: 'mt1',
     });
     var channel = pusher.subscribe('my-channel');
