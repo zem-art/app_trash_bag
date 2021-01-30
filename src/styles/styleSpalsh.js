@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
     // borderWidth: 1,
   },
   icon: {
-    height: '70%',
+    height: '75%',
     width: '75%',
     justifyContent: 'center',
     alignSelf: 'center',
