@@ -31,7 +31,7 @@ export class Acounts extends Component {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log('Data Profile==', data.user);
+        // console.log('Data Profile==', data.user);
         this.setState({
           refreash: false,
           isloading: false,

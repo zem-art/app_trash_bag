@@ -5,7 +5,7 @@ import LinearGradient from 'react-native-linear-gradient';
 
 export class MyAcounts extends Component {
   render() {
-    console.log('Ini Data params ', this.props.route.params.item);
+    // console.log('Ini Data params ', this.props.route.params.item);
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor="#5ad488ff" />

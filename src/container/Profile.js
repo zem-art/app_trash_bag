@@ -46,7 +46,7 @@ class Profile extends Component {
         },
       })
         .then((result) => {
-          console.log('Sucsess==', result.data.data);
+          // console.log('Sucsess==', result.data.data);
           this.setState({
             saldo: result.data.data,
             isloading: false,
@@ -76,7 +76,7 @@ class Profile extends Component {
         },
       })
         .then((result) => {
-          console.log('Berhasil GET==', result.data);
+          // console.log('Berhasil GET==', result.data);
           this.setState({
             isloading: false,
             Trash: result.data.data,
@@ -127,21 +127,25 @@ class Profile extends Component {
             <HeaderP navigation={this.props.navigation} />
           </ScrollView>
           <View style={styles.pactData}>
-            <View style={styles.data}>
-              <View style={styles.inData}>
-                <Text>Total Saldo</Text>
-                <Text>{this.state.saldo}</Text>
-              </View>
-              <View style={styles.inData}>
-                <Text>Total Sampah</Text>
-                <Text>{this.state.Trash} KG</Text>
-              </View>
+            <View style={styles.outData}>
               <TouchableOpacity
                 onPress={() => this.Refreash()}
-                style={styles.inData}>
-                <Text>Total Berat</Text>
-                <Text>Klik</Text>
+                style={styles.refreash}>
+                <Image
+                  style={styles.iconRefrash}
+                  source={require('../assets/icon/refrash.png')}
+                />
               </TouchableOpacity>
+              <View style={styles.data}>
+                <View style={styles.inData}>
+                  <Text>Total Saldo</Text>
+                  <Text>{this.state.saldo}</Text>
+                </View>
+                <View style={styles.inData}>
+                  <Text>Total Sampah</Text>
+                  <Text>{this.state.Trash} KG</Text>
+                </View>
+              </View>
             </View>
           </View>
         </LinearGradient>
