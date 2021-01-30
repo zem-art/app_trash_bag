@@ -32,6 +32,14 @@ const styles = StyleSheet.create({
   textTitle1: {
     textAlign: 'center',
     fontSize: 30,
+    fontWeight: 'bold',
+  },
+  version: {
+    textAlign: 'center',
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#a99a',
+    opacity: 0.7,
   },
 });
 

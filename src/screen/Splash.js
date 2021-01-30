@@ -24,6 +24,7 @@ export class Splash extends Component {
         </View>
         <View style={styles.pathTitle}>
           <Text style={styles.textTitle1}>Trash Bag</Text>
+          <Text style={styles.version}>V 1.5</Text>
         </View>
       </LinearGradient>
     );
