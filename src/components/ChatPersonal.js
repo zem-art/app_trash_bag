@@ -43,9 +43,9 @@ class ChatPersonal extends Component {
       cluster: 'mt1',
     });
     var channel = pusher.subscribe('my-channel');
-    channel.bind('my-event', function (data) {
+    channel.bind('my-event', (data) => {
       // alert(JSON.stringify(data));
-      this.getChat();
+      this.getChat(data);
     });
   }
 
